@@ -1,0 +1,820 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-family: "Karma", sans-serif;
+    line-height: 1.5;
+    font-size: 15px;
+    scroll-behavior: smooth !important;
+}
+
+:root{
+    --header-height: 70px;
+    --header-color: #f2b6cc;
+    --bg-color: #f2e4e4;
+    --content-color: #f24976;
+    --title-color: #f291d0;
+    --hover-color: #f0c5d5;
+    --food-item-height: 580px;
+
+}
+
+.text-center{
+    text-align: center;
+}
+
+.text-white{
+    color: #fff !important
+}
+
+.row{
+    padding-top: 8px;
+    padding-bottom: 8px;
+    width: 100%;   
+    float: left;
+    overflow: hidden;
+}
+
+.row::after{
+    clear: both;
+    content: "";
+    display: block;
+}
+
+.flr{
+    float: right;
+}
+
+.flr::after{
+    clear: both;
+    content: "";
+    display: block;
+}
+
+.col{
+    /* padding-right: 8px;
+    padding-left: 8px; */
+    float: left;
+}
+
+.col-third{
+    width: 33.33333%;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.col-four{
+    width: calc( (100% - 160px) / 4 );
+    margin-left: 20px;
+    margin-right: 20px;
+    height: var(--food-item-height);
+}
+
+.p16{
+    padding: 16px;
+}
+
+.p20{
+    padding: 20px;
+}
+
+.pb16-pt16{
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+.clear-a{
+    text-decoration: none;
+    color: #000;
+}
+
+/* FONT SIZE CSS  */
+.header-title_fs{
+    font-size: 30px;
+}
+
+.modal-title_fs{
+    font-size: 34px;
+}
+
+.text-title_fs{
+    font-size: 26px;
+
+}
+
+.text_fs_S{
+
+}
+
+.text_fs_M{
+    font-size: 18px;
+}
+
+.text_fs_L{
+    font-size: 22px;
+
+}
+
+
+
+
+
+/* Phan MAIN  */
+#main{
+    background-color: var(--bg-color);
+    background-size: cover;
+    width: 100%;
+    top: 0;
+    position: absolute;
+}
+
+/* phan header  */
+#header{
+    background-color: var(--header-color);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    box-shadow: 0 0 20px rgb(0 0 0 / 50%);
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+
+#header .header-title{
+    list-style: none;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: var(--header-height);
+}
+
+.header-title > li{
+    display: inline-block;
+    height: inherit;
+    line-height: var(--header-height);
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+
+.center-title{
+    flex: 6;
+    order: 2;
+}
+
+.menu-title{
+    flex: 1;
+    order: 1;
+}
+
+.contact-title{ 
+    flex: 1;
+    order: 3;
+}
+
+.center-title a{
+    display: inline-block;
+}
+
+.center-title a:hover {
+    font-size: 34px;
+    text-shadow: 0 0 20px rgba(1, 1, 1, 0.5);
+    transform: translateY(5px);
+    transition-delay: 100ms;
+    z-index: 2;
+}
+
+.menu-title:hover, .contact-title:hover{
+    background-color: var(--hover-color);
+    color: #000;
+    cursor: pointer;
+}
+
+
+
+/* Phan than  */
+#content{
+    margin-top: 100px !important;
+    padding: 8px 16px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+}
+
+.description{
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+}
+
+
+        /* PHAN FOOD  */
+
+
+.food-menu-container .row {
+    display: none;
+}
+
+.food{
+}
+
+.food-items{
+   background-color: #f4dcd6b0;
+   border-top-left-radius: 20px;
+   border-top-right-radius: 20px;
+   margin-top: 10px;
+}
+
+.food-items:hover{
+    transform: scale(1.01);
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(254, 140, 212, 0.5);
+}
+
+.food-container{
+    margin-top: 20px;
+}
+
+.food-items img{
+    width: 100%;
+    border-radius: 20px;
+}
+
+.food-container::after{
+    clear: both;
+    content: "";
+    display: block;
+}
+
+.food-title{
+    font-weight: 600;
+    color: var(--title-color);
+    /* text-shadow: 0 0 10px rgba(214, 145, 189, 0.5); */
+}
+     
+.food-description{
+    opacity: 0.7;
+    letter-spacing: 2px;
+    color: var(--content-color);
+}
+
+.food-information{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(1, 1, 1, 0.3);
+    top: 0;
+    left: 0;
+    z-index: 5;
+    position: fixed;
+    display: none;
+}  
+
+.food-information-container{
+    max-width: 800px;
+    min-height: 500px;
+    background-color: var(--header-color);
+    position: relative;
+    margin: auto;
+    top: 10%;
+    display: flex;
+
+    /* grid-template-columns: auto auto auto; */
+}
+
+.food-information-image{
+    width: 40%;
+
+}
+
+.infor{
+
+}
+
+.food-information-title{
+}
+
+.food-information-description{
+
+}
+
+/* Phan food button  */
+.food-navi-container{
+    padding-top: 32px;
+    padding-bottom: 32px;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+
+.food-navi-container a{
+    padding: 8px 16px;
+    display: block;
+}
+
+.food-navi-container a:hover{
+    background-color: var(--header-color);
+    color: #fff;
+}
+
+.food-navi-container .chosen-btn{
+    background-color:var(--header-color);
+    color: #fff;
+}
+
+.food-navi-container .chosen-btn:hover{
+    background-color: var(--hover-color);
+}
+
+.navi-food{
+}
+
+/* Phan about */
+.about-container{
+    padding: 32px 16px;
+}
+
+.about-content-container{
+    padding-top: 32px;
+    /* padding-bottom: 32px; */
+}
+
+.about-break{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-top: 1px solid var(--header-color);
+}
+
+.about-image{
+    margin: auto;
+    max-width: 100%;
+}
+
+.random-btn{
+    background-color: #000;
+    color: #fff;
+    padding: 30px;
+    width: 20%;
+    border-radius: 10px;
+    margin: auto;
+    cursor: pointer;
+}
+/* PHẦN FOOTER  */
+#footer{
+    padding-top: 32px;
+    padding-bottom: 32px;
+}
+
+.footer-title{
+    text-transform: uppercase;
+}
+
+.blog-items{
+   list-style: none;
+}
+
+.blog-items img{
+    width: 50px ;
+    float: left;
+    margin-right: 16px;
+}
+
+.blog-items p{
+}
+
+.tag-name{
+    background-color: #616161;
+    padding-right: 8px;
+    padding-left: 8px;
+    margin-bottom: 16px;
+    color: white;
+    text-align: center;
+    display: inline-block;
+}
+
+.footer-container .first{
+    background-color: #000;
+}
+/* PHAN MENU MODAL  */
+.menu-modal{
+   background-color: rgba(1, 1, 1, 0.3);
+   width: 100%;
+   height: 100%;
+   z-index: 10;
+   position: fixed;
+   left: 0;
+   top: 0;
+   display: none;
+}
+
+.menu-modal-container{
+    background-color: var(--header-color);
+    width: 30%;
+    height: 100%;
+    box-shadow: 0 0 30px rgba(1, 1, 1, 0.5);
+    animation: FadeInX ease 0.5s;
+    position: relative;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+.menu-items-container{
+    list-style: none;
+    height: 480px;
+    overflow: auto;
+}
+
+
+.menu-items-container::-webkit-scrollbar{
+    display: none;
+}
+
+.menu-modal-title{
+    color: var(--content-color);
+}
+
+.menu-modal-title::after{
+    background-color: var(--bg-color);
+    display: block;
+    width: 100%;
+    height: 1px;
+    content: "";
+    margin-top: 10px;
+}
+
+.menu-items{
+    padding: 20px;
+    display: block;
+    text-align: center;
+}
+
+.menu-items:hover{
+    background-color: var(--hover-color);
+
+}
+
+.menu-food{
+    display: block;
+    color: var(--bg-color);
+}
+
+.btn-container{
+    position: relative;
+    height: 88.5px;
+}
+
+.btn-container::before{
+    background-color: var(--bg-color);
+    display: block;
+    width: 86%;
+    height: 1px;
+    content: "";
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.close-btn{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(255, 49, 36, 0.8);
+    margin-right: 35px;
+    margin-bottom: 20px;
+    padding: 15px 40px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.close-btn:hover{
+    opacity: 0.5;
+}
+
+/* Phần contact modal  */
+.contact-layer{
+    position: fixed;
+    background-color: rgba(1, 1, 1, 0.3);
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    display: none;
+
+}
+
+.contact-container{
+    position: relative;
+    max-width: 700px;
+    width: 90%;
+    min-height: 400px;
+    background-color: var(--header-color);
+    top: 15%;
+    margin: auto;
+    border-radius: 20px;
+}
+
+.contact-content-container{
+    list-style: none;
+    margin-left: 20px;
+}
+
+.contact-modal-title{
+    color: white;
+    text-shadow: 0 0 10px var(--bg-color);
+    font-weight: bold;
+    text-align: center;
+}
+
+.contact-item{
+    margin: 10px;
+    color: var(--content-color);
+}
+
+.contact-item a {
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.contact-icon{
+    padding: 2px;
+    background-color: var(--bg-color);
+    color: var(--title-color);
+}
+
+.contact-text{
+    margin-left: 5px;
+    font-weight: bold;
+    color: var(--content-color);
+}
+
+.contact-close{
+    position: absolute;
+    background-color: rgba(255, 49, 36, 0.8);
+    top: 10px;
+    right: 20px;
+    padding: 20px;
+    border-radius: 40px;
+    cursor: pointer;
+}
+
+.contact-close:hover{
+    opacity: 0.7;
+}
+
+
+.open{
+    display: unset !important;
+}
+
+.clear{
+    clear: both;
+    display: block;
+    content: "";
+}
+
+.loading{
+    animation: Rotate infinite 4s ;
+    animation-delay: 0ms;
+}
+
+@keyframes FadeInX{
+    from{
+        opacity: 0.3;
+        transform: translateX(-150px);
+    }
+    to{
+        transform: translateX(0);
+    }
+}
+
+@keyframes FadeOutX{
+    from{
+        transform: translateX(0) ;
+    }
+    to{
+        opacity: 0.3;
+        transform: translateX(-150px);
+    }
+
+}
+
+@keyframes Rotate{
+    from{
+        transform: rotateZ(0deg);
+    }
+    to{
+        transform: rotateZ(360deg);
+    }
+}
+
+
+            /* PHẦN RESPONSIVE */
+
+/* Mobile: width < 740px */
+@media only screen and (max-width: 46.1875em) {
+    html{
+        font-size: 13px;
+    }
+
+    .menu-modal-container{
+        width: 60%;
+    }
+
+    .food-items{
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .food-items{
+        content: "";
+        clear: both;
+        display: block;
+    }
+
+    .food-items > img{
+        width: 40%;
+        float: left;
+    }
+
+    .food-title, .food-description{
+        float: right;
+        width: 58%;
+        margin-left: 5px;
+    }
+
+   .footer-container{
+        width: 100%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+   }
+
+   .footer-container .footer-title{
+        text-align: center;
+   }
+
+   .footer-container .footer{
+        text-align: right;
+        margin-top: 15px;
+        margin-bottom: 15px;
+   }
+
+   .tag-container{
+        margin-top: 15px;
+   }
+
+   .row{
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .food-items:hover{
+        transform: none;
+        box-shadow: none;
+    }
+
+    :root{
+        --food-item-height: 360px;
+    }
+
+    .col-four{
+        width: calc( (100% - 40px) );
+    }
+
+    .header-title_fs {
+        font-size: 25px;
+    }
+
+    .center-title a:hover{
+        transform: none;
+        font-size: unset;
+    }
+
+    .center-title {
+        flex: 6;
+        order: 2;
+    }
+
+    .menu-title {
+        flex: 2;
+        order: 1;
+    }
+
+    .contact-title {
+        flex: 2;
+        order: 3;
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+    .menu-items-container{
+        height: 560px;
+    }
+}
+
+/* Tablet: width >= 740px and width < 1024px  */
+@media only screen and (min-width: 46.25em) and (max-width: 63.9375em) {
+    html{
+        font-size: 20px;
+    }
+
+    :root{
+        --header-height: 100px
+    }
+
+    .text-title_fs{
+        font-size: 40px;
+    }
+
+    .text_fs_L{
+        font-size: 28px;
+    }
+
+    .text_fs_M {
+        font-size: 26px;
+    }
+
+    .header-title_fs {
+        font-size: 46px;
+    }
+
+    .modal-title_fs {
+        font-size: 48px;
+    }
+
+    .menu-modal-container{
+        width: 45%;
+    }
+    
+    .col-four{
+        width: calc( (100% - 80px) / 2 );
+    }
+
+    .contact-container{
+        min-height: 560px;
+    }
+
+    
+    .menu-items-container{
+        height: 920px;
+    } 
+
+    .btn-container{
+        height: 167px;
+    }
+
+    .close-btn{
+        padding: 25px 50px;
+        margin-bottom: 60px;
+    }
+
+    .food-items{
+        overflow: hidden;
+        position: relative;
+    }
+
+    .food-items::after{
+        display: block;
+        content: "...";
+        padding: 2px;
+        top: 540px;
+        right: -10px;
+        position: absolute;
+        color: #f24976;
+        background-color: black;
+        border-top-left-radius: 59px;
+        border-top-left-radius: -101px;
+        border-bottom-left-radius: 271px;
+        border-bottom-right-radius: 286px;
+    }
+
+    .food-items:hover{
+        transform: none;
+        box-shadow: none;
+    }
+
+
+    .food-navi-container a{
+        padding: 16px 32px;
+    }
+
+    .center-title {
+        flex: 5;
+        order: 2;
+    }
+
+    .menu-title {
+        flex: 2;
+        order: 1;
+    }
+
+    .contact-title {
+        flex: 2;
+        order: 3;
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+
+} 
