@@ -57,8 +57,8 @@
                     <div class="food-information-container">
                         <img src="./assets/img/bún thịt luộc.jpg" alt="" class="food-information-image">
                         <div class="infor">
-                            <h2 class="food-information-title text-title_fs title larger">${food.name}</h2>
-                            <p class="food-information-description text_fs_M description">${food.description}</p>    
+                            <h2 class="food-information-title text-title_fs title">Bún thịt luộc</h2>
+                            <p class="food-information-description text_fs_M description">Bún ăn kèm với thịt luộc, bánh tráng chiên giòn, trứng lòng đào và mọi topping khác nếu thực khách yêu cầu. Có thể ăn với mắm gì cũng được miễn là người ta thích.</p>    
                         </div>                              
                     </div>                   
                 </div>
@@ -76,7 +76,7 @@
             <!-- ABOUT -->
             <hr class="about-break">
             <div class="about-container text-center">
-                <h2 class="about-title title">About Me, The Food Man</h2>
+                <!-- <h2 class="about-title title">About Me, The Food Man</h2>
                 <br>
                 <img src="./assets/img/chef.jpg" alt="" class="about-image">
                 <div class="about-content-container">
@@ -90,14 +90,14 @@
                     </p>
                 </div>
                 <div class="random-btn"></div>
-                <div class="demo"></div>
+                <div class="demo"></div> -->
             </div>
                 
             <hr class="about-break">
         </div>
 
         <!-- FOOTER  -->
-        <div id="footer" class="row">
+        <!-- <div id="footer" class="row">
             <div class="col col-third footer-container">
                 <h3 class="footer-title title">footer</h3>
                 <div class="footer-description description">Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, 
@@ -140,7 +140,7 @@
                     <span class="tag-name">Duck</span>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>  
 </body>
 
@@ -169,11 +169,14 @@
 
     const foodMenuContainer = $('.food-container')
 
+    //IDEAS:
     // Xử lí JS khi bấm vào food items, (nó sẽ zoom ra full màn hình), tạo layer của từng food-items, giúp ích rất nhiều trong responsive
-    // Lợi dụng food-number-${index} để viết JS, viết kiểu render fake API
+    // Lợi dụng food-number-${index} để viết JS, viết kiểu render fake API (done)
+    // Sử dụng length of array để gán class cho food-description (ít chữ sẽ có độ dài nhỏ hơn nhiều chữ) !!!chú ý khi làm vậy responsive sẽ có bug
+    // sử dụng CSS function: clamp() để thay cho responsive
 
     const web = {
-        curentPage: 0,
+        currentPage: 0,
         handleEvents: function() {
             const _this = this
 
@@ -201,7 +204,7 @@
             }
 
             //Random and get food
-            randomBtn.onclick = _this.randomNum
+            // randomBtn.onclick = _this.randomNum
 
         },
 
@@ -232,12 +235,12 @@
             contactModal.classList.remove('open')
         },
 
-        randomNum: function() {
-            let randNumber = Math.floor(Math.random() * foodData.length)
-            let demo = $('.demo')
-            let foodItem = $$('.food-title')
-            demo.innerHTML = foodItem[randNumber].innerText
-        },
+        // randomNum: function() {
+        //     let randNumber = Math.floor(Math.random() * foodData.length)
+        //     let demo = $('.demo')
+        //     let foodItem = $$('.food-title')
+        //     demo.innerHTML = foodItem[randNumber].innerText
+        // },
 
         // render ra menu
         render: function() {
@@ -254,7 +257,7 @@
                         <div class="col col-four food-items food-number-${index + 1}" id="" > 
                             <img src="${food.img}" alt="" class="food-image">
                             <h2 class="food-title text-title_fs title larger">${food.name}</h2>
-                            <p class="food-description text_fs_M description">${food.description}</p>           
+                                <p class="food-description text_fs_M description">${food.description}</p>
                         </div>
                         `)
                 }
@@ -263,8 +266,8 @@
                         <div class="col col-four food-items food-number-${index + 1}" id="" > 
                             <img src="${food.img}" alt="" class="food-image">
                             <h2 class="food-title text-title_fs title larger">${food.name}</h2>
-                            <p class="food-description text_fs_M description">${food.description}</p>           
-                        </div>
+                            <p class="food-description text_fs_M description">${food.description}</p>
+                        </div>         
                         `) 
                 }
             })
