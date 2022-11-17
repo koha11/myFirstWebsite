@@ -18,7 +18,7 @@ html{
     --content-color: #f24976;
     --title-color: #f291d0;
     --hover-color: #f0c5d5;
-    --food-item-height: 580px;
+    --food-item-height: 550px;
 
 }
 
@@ -206,9 +206,10 @@ html{
 }
 
 .description{
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
     padding-top: 5px;
+    text-align: center;
 }
 
 
@@ -224,8 +225,9 @@ html{
 
 .food-items{
    background-color: #f4dcd6b0;
-   border-top-left-radius: 20px;
-   border-top-right-radius: 20px;
+   /* border-top-left-radius: 20px;
+   border-top-right-radius: 20px; */
+   border-radius: 20px;
    margin-top: 10px;
 }
 
@@ -262,6 +264,14 @@ html{
     color: var(--content-color);
 }
 
+.food-description-container::after{
+    clear: both;
+    content: "";
+    display: block;
+}
+
+
+/* Food zoom in  */
 .food-information{
     width: 100%;
     height: 100%;
@@ -280,25 +290,30 @@ html{
     position: relative;
     margin: auto;
     top: 10%;
-    display: flex;
-
-    /* grid-template-columns: auto auto auto; */
+    display: grid;
+    grid-template-columns: 40% 60%;
+    /* border: white 5px solid; */
+    border-radius: 10px;
 }
 
 .food-information-image{
-    width: 40%;
+    width: 100%;
 
 }
 
 .infor{
-
+    display: grid;
+    text-align: center;
+    grid-template-rows: 30% 70%;
 }
 
 .food-information-title{
+    align-self: center;
+
 }
 
 .food-information-description{
-
+    letter-spacing: 2px;
 }
 
 /* Phan food button  */
@@ -612,8 +627,8 @@ html{
 
             /* PHẦN RESPONSIVE */
 
-/* Mobile: width < 740px */
-@media only screen and (max-width: 46.1875em) {
+/* Mobile1: 646px < width < 740px */
+@media only screen and (min-width: 40.375em) and (max-width: 46.1875em) {
     html{
         font-size: 13px;
     }
@@ -624,7 +639,13 @@ html{
 
     .food-items{
         width: 100%;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
+        margin-top: 20px;
+        border: 2px white dashed;
+    }
+
+    .food-items p{
+        overflow: hidden;
     }
 
     .food-items{
@@ -636,12 +657,25 @@ html{
     .food-items > img{
         width: 40%;
         float: left;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        border: 6px white solid; /* can tinh  */
+    }
+
+    .food-items > .loading{
+        border: none;        
+        top: -14px; 
     }
 
     .food-title, .food-description{
         float: right;
         width: 58%;
         margin-left: 5px;
+    }
+
+    .food-description-container{
+        /* overflow: hidden; */
     }
 
    .footer-container{
@@ -675,7 +709,7 @@ html{
     }
 
     :root{
-        --food-item-height: 360px;
+        --food-item-height: 220px;
     }
 
     .col-four{
@@ -709,11 +743,144 @@ html{
     }
 
     .menu-items-container{
-        height: 560px;
+        height: 480px;
+    }
+
+    .description{
+        text-align: left;
     }
 }
 
-/* Tablet: width >= 740px and width < 1024px  */
+/* MOBILE2: width < 646px */
+@media only screen and (max-width: 40.374em) {
+    html{
+        font-size: 13px;
+    }
+
+    .menu-modal-container{
+        width: 60%;
+    }
+
+    .food-items{
+        width: 100%;
+        margin-bottom: 20px;
+        margin-top: 20px;
+        border: 2px white dashed;
+        overflow: hidden;
+    }
+
+    .food-items > img{
+        width: 40%;
+        float: left;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        border: 6px white solid; /* can tinh  */
+    }
+
+    .food-items > .loading{
+        border: none;        
+        top: 20px;
+    }
+
+    .food-title, .food-description{
+        float: right;
+        width: 58%;
+        margin-left: 5px;
+    }
+
+    .food-description-container{
+    }
+
+    .food-items::before{
+        display: block;
+        content: "+";
+        position: absolute;
+        color: #f24976;
+        background-color: lightpink;
+        border-top-left-radius: -101px;
+        border-radius: 30px;
+        line-height: 30px;
+        font-size: 30px;
+        padding: 5px 10px;
+        z-index: 1;
+        transform: translateX(0px);
+    }
+
+   .footer-container{
+        width: 100%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+   }
+
+   .footer-container .footer-title{
+        text-align: center;
+   }
+
+   .footer-container .footer{
+        text-align: right;
+        margin-top: 15px;
+        margin-bottom: 15px;
+   }
+
+   .tag-container{
+        margin-top: 15px;
+   }
+
+   .row{
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .food-items:hover{
+        transform: none;
+        box-shadow: none;
+    }
+
+    :root{
+        --food-item-height: 220px;
+    }
+
+    .col-four{
+        width: calc( (100% - 40px) );
+    }
+
+    .header-title_fs {
+        font-size: 25px;
+    }
+
+    .center-title a:hover{
+        transform: none;
+        font-size: unset;
+    }
+
+    .center-title {
+        flex: 6;
+        order: 2;
+    }
+
+    .menu-title {
+        flex: 2;
+        order: 1;
+    }
+
+    .contact-title {
+        flex: 2;
+        order: 3;
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+    .menu-items-container{
+        height: 480px;
+    }
+
+    .description{
+        text-align: left;
+    }
+}
+
+/* TABLET: width >= 740px and width < 1024px  */
 @media only screen and (min-width: 46.25em) and (max-width: 63.9375em) {
     html{
         font-size: 20px;
@@ -757,7 +924,7 @@ html{
 
     
     .menu-items-container{
-        height: 920px;
+        height: 420px;
     } 
 
     .btn-container{
@@ -774,19 +941,19 @@ html{
         position: relative;
     }
 
-    .food-items::after{
+    .food-items::before{
         display: block;
-        content: "...";
-        padding: 2px;
-        top: 540px;
-        right: -10px;
+        content: "+";
+        line-height: 40px;
+        font-size: 50px;
+        padding: 10px 20px;
+        top: 10px;
+        left: 10px;
         position: absolute;
         color: #f24976;
-        background-color: black;
-        border-top-left-radius: 59px;
+        background-color: lightpink;
         border-top-left-radius: -101px;
-        border-bottom-left-radius: 271px;
-        border-bottom-right-radius: 286px;
+        border-radius: 30px;
     }
 
     .food-items:hover{
