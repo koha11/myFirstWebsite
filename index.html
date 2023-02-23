@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE foodMenuHTML>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,23 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/icon/themify-icons/themify-icons.css">
+    
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <title>Food Web 4U</title>
 </head>
 
 <body>
     <div id="main">  
-        <div id="header">
-            <ul class="header-title text-center text-white header-title_fs">
-                <li class="center-title "><a href="#" class="text-white clear-a">My Food</a></li>
-                <li class="menu-title js-menu "><i class="ti-menu"></i></li>
-                <li class="contact-title ">Contact</li>
-            </ul>
+        <div id="bg-header">
+            <video autoplay loop muted preload="metadata">
+                <source src="./assets/media/Seoul - 21985.mp4" type="video/mp4">
+            </video>
         </div>
 
-        <div class=" menu-modal js-menu-modal">
-            <div class="menu-modal-container js-menu-modal-container">
-                <div class="menu-modal-title modal-title_fs p20">FOOD MENU</div>
+        <div id="header">
+            <ul class="header-container text-center text-white header-title_fs">
+                <li class="center-title ">
+                    <span class="center-title-letter" data-delay= "200" >M</span>
+                    <span class="center-title-letter" data-delay= "400" >Y</span>
+                    <span class="center-title-letter" data-delay= "600" > F</span>
+                    <span class="center-title-letter" data-delay= "800" >O</span>
+                    <span class="center-title-letter" data-delay= "1000" >O</span>
+                    <span class="center-title-letter" data-delay= "1200" >D</span>
+
+                </li>
+                <li class="menu-title js-open "><i class="ti-menu"></i></li>
+                <li class="contact-title js-open">Contact</li>
+            </ul>
+        </div>
+        
+
+        <div class=" menu-modal js-menu-modal js-close js-hidden-element">
+            <div class="menu-modal-container js-menu-modal-container js-container">
+                <div class="menu-modal-title modal-title_fs">FOOD MENU</div>
                 <ul class="menu-items-container text_fs_L"></ul>
                 <div class="btn-container">
                     <button class="close-btn js-close text_fs_M" style="border:none">Close</button>  
@@ -30,46 +46,40 @@
             </div>
         </div>
 
-        <div class="contact-layer">
-            <div class="contact-container">
-                <div class="contact-modal-title modal-title_fs">My Contact</div>
-                <ul class="contact-content-container">
-                    <li class="contact-item text_fs_L">Name: <span class="contact-text text-title_fs ">Trần Anh Khoa</span></li>
-                    <li class="contact-item text_fs_L">Age: <span class="contact-text text-title_fs ">18</span></li>
-                    <li class="contact-item text-title_fs"> <a href="https://www.facebook.com/khoa.anh.tran.9966"> <i class="ti-facebook contact-icon"></i><span class="contact-text ">Khoa</span></a></li>
-                    <li class="contact-item text-title_fs"> <a href="https://www.instagram.com/amoureux_11/"> <i class="contact-icon ti-instagram"></i><span class="contact-text ">amoureux_11</span></a> </li>
-                    <li class="contact-item text-title_fs"> <a href="https://github.com/koha11"> <i class="contact-icon ti-github"></i><span class="contact-text ">koha11</span></a> </li>
-                    <li class="contact-item text-title_fs"> <a href="https://mail.google.com/mail/u/0/#inbox"> <i class="contact-icon ti-email"></i><span class="contact-text ">khoa88108@gmail.com</span></a> </li>
+        <div class="contact-layer js-close js-hidden-element">
+            <div class="contact-container js-container row">
+                <div class="contact-modal-title modal-title_fs row">My Contact</div>
+                <ul class="contact-content-container js-container row">
+                    <li class="contact-item text_fs_L row"> <span class="contact-text-title">Name:</span>  <span class="contact-text text-title_fs ">Trần Anh Khoa</span></li>
+                    <li class="contact-item text_fs_L row"><span class="contact-text-title">Age:</span><span class="contact-text text-title_fs ">18</span></li>
+                    <li class="contact-item text_fs_L row"><span class="contact-text-title">Please contact with me at: </span></li>
+                    <li class="contact-item contact-link text-title_fs row"> <a href="https://www.facebook.com/khoa.anh.tran.9966"> <i class="ti-facebook contact-icon"></i><span class="contact-text ">Khoa</span></a></li>
+                    <li class="contact-item contact-link text-title_fs row"> <a href="https://www.instagram.com/amoureux_11/"> <i class="contact-icon ti-instagram"></i><span class="contact-text ">amoureux_11</span></a> </li>
+                    <li class="contact-item contact-link text-title_fs row"> <a href="https://github.com/koha11"> <i class="contact-icon ti-github"></i><span class="contact-text ">koha11</span></a> </li>
+                    <li class="contact-item contact-link text-title_fs row"> <a href="https://mail.google.com/mail/u/0/#inbox"> <i class="contact-icon ti-email"></i><span class="contact-text ">khoa88108@gmail.com</span></a> </li>
                 </ul>
-                <div class="contact-close"></div>
+                <div class="contact-close js-close"></div>
                 
             </div>
         </div>
 
+        <div class="food-information js-hidden-element js-close">
+        </div>
+
+        <div class="to-top-btn"></div>
+
         <div id="content">
             <div class="food row">
                 <div class="food-menu-container">
-                    <div class="row open page-1 js-food-page text-center"></div>
-                    <div class="row page-2 js-food-page text-center"></div>
-                </div>
-
-                <div class="food-information">
-                    <div class="food-information-container">
-                        <img src="./assets/img/bún thịt luộc.jpg" alt="" class="food-information-image">
-                        <div class="infor">
-                            <h2 class="food-information-title text-title_fs title">Bún thịt luộc</h2>
-                            <p class="food-information-description text_fs_M description">Bún ăn kèm với thịt luộc, bánh tráng chiên giòn, trứng lòng đào và mọi topping khác nếu thực khách yêu cầu. Có thể ăn với mắm gì cũng được miễn là người ta thích.</p>    
-                        </div>                              
-                    </div>                   
                 </div>
 
                 <div class="row food-navi-container text-center text_fs_M">
-                    <a class="food-button clear-a" href="#"><<</a>
+                    <a class="food-button prev-food-button clear-a js-prev-next-btn" href="#"><<</a>
                     <a class="food-button chosen-btn clear-a js-navi-one js-navi-btn" href="#" >1</a>
                     <a class="food-button clear-a two js-navi-two js-navi-btn" href="#" >2</a>
                     <a class="food-button clear-a three js-navi-three js-navi-btn" href="#">3</a>
                     <a class="food-button clear-a four js-navi-four js-navi-btn" href="#">4</a>
-                    <a class="food-button clear-a" href="#">>></a>
+                    <a class="food-button next-food-button clear-a js-prev-next-btn" href="#">>></a>            
                 </div>
             </div>
 
@@ -152,88 +162,205 @@
     const $$ = document.querySelectorAll.bind(document)
     
     const menuModal = $('.js-menu-modal')   
-    const menuModalCLoseBtns = $$('.js-close')
-    const menuModalBtn = $('.js-menu')
-    const menuContainer = $('.js-menu-modal-container')
+    const menuModalContainer = $('.js-menu-modal-container')
     const menuModalItemList = $('.menu-items-container')
 
     const naviBtn = $$('.js-navi-btn')
-    const foodPage = $$('.js-food-page') 
 
-    const contactModalBtn = $('.contact-title')
     const contactModal = $('.contact-layer')
-    const contactCloseBtn = $('.contact-close')
-    const contactContainer = $('.contact-container')
 
     const randomBtn = $('.random-btn')
 
-    const foodMenuContainer = $('.food-container')
+    const foodMenuContainer = $('.food-menu-container')
+
+    const foodInformation = $('.food-information')
+
+
+    
+    
 
     //IDEAS:
     // Xử lí JS khi bấm vào food items, (nó sẽ zoom ra full màn hình), tạo layer của từng food-items, giúp ích rất nhiều trong responsive
     // Lợi dụng food-number-${index} để viết JS, viết kiểu render fake API (done)
-    // Sử dụng length of array để gán class cho food-description (ít chữ sẽ có độ dài nhỏ hơn nhiều chữ) !!!chú ý khi làm vậy responsive sẽ có bug
+    // Sử dụng length of array để gán class cho food-description (ít chữ sẽ có độ dài nhỏ hơn nhiều chữ) !!!chú ý khi làm vậy responsive sẽ có bug (mình đã fix cái này bằng cái hide đi và hiện chữ "Đọc tiếp")
     // sử dụng CSS function: clamp() để thay cho responsive
+    // sử dụng rem thay cho px đối với font size (responsive ít dòng hơn)
+    // Sử dụng 1 bgcl khác có màu nhạt hơn, suy nghĩ cách tạo điểm nhấn cho food menu (Tạm done)
+    // hoàn thiện food item pop up (Thiếu slide ảnh ở bên dưới) 
+    //Khi scroll sẽ ẩn hiện / mất dần / xuất hiện dần menu (có thể dùng css được) (Tra Ytb đi)
+    //Set cho cái title MY FOOD animation, bằng cách cho từng chữ vào span và khi hover sẽ tăng font size hoặc translateY nó 
+    //Thêm phần đọc tiếp cho cái food item
+    // Thêm cái hover cho "đọc tiếp"sẽ scale food-items (dùng DOM event: mousedown...)
+    // Suy nghĩ idea cho sidebar left 
+
+    //BUGS:
+    // Lỗi thêm animation vào foodMenu, idea là khi bấm mở thì sẻ fadeIn, bấm tắt sẽ fadeOut, thử dùng Promise hoặc setTimeOut
 
     const web = {
-        currentPage: 0,
+        currentPage: 1,
+        isOpen: false,
+        
         handleEvents: function() {
             const _this = this
+            let closeBoxList = $$('.js-close')
+            let openBoxList = $$('.js-open')
+            let elementContainerList = $$('.js-container')
+            let hiddenElementList = $$('.js-hidden-element')
+            let scrollToTopBtn = $('.to-top-btn')
 
-            //menuModal Event
-            menuModalBtn.onclick = _this.showMenuModal
+            const nextPageBtn = $('.next-food-button')
+            const prevPageBtn = $('.prev-food-button')
+            
+            //Hành vi đóng mở các modal trong website
+                Array.from(openBoxList).forEach((openElement) => {
+                    openElement.onclick = function(e) {
+                        _this.isOpen = true                        
+                        _this.unhideElement(openElement)
+                        _this.checkMenuStatus(openElement)  
+                    } 
+                })             
+                
+                Array.from(elementContainerList).forEach((elementContainer) => {                
+                    elementContainer.onclick = function(e) {
+                        e.stopPropagation()               
+                    } 
+                })            
 
-            for (const menuModalCLoseBtn of menuModalCLoseBtns) {
-                menuModalCLoseBtn.onclick = _this.hideMenuModal 
-            }
+                Array.from(closeBoxList).forEach((closeElement) => {
+                    closeElement.onclick = function(e) {
+                        _this.isOpen = false        
+                        _this.addStyleForWebsite(closeElement)          
+                        _this.hideElement(closeElement)  
+                        _this.checkMenuStatus(closeElement)        
+                    } 
+                })
 
-            menuModal.onclick = _this.hideMenuModal
-            menuContainer.onclick = function(event){
-                event.stopPropagation() //chấm dứt hvi sự kiện nổi bọt
-            }
 
             //Page navigation
-            naviBtn.forEach((item) => item.onclick =  _this.changePage)
-
-            //contactModal Event
-            contactModalBtn.onclick = _this.openContactModal
-            contactModal.onclick = _this.hideContactModal
-            contactCloseBtn.onclick = _this.hideContactModal
-            contactContainer.onclick = function(event){
-                event.stopPropagation() //chấm dứt hvi sự kiện nổi bọt
-            }
+            naviBtn.forEach((item) => item.onclick =  function(e){
+                _this.changePage(e.target)
+            })
 
             //Random and get food
             // randomBtn.onclick = _this.randomNum
 
+            scrollToTopBtn.onclick = function(e) {
+                window.scrollTo(0,0)
+            }
+
+            nextPageBtn.onclick = function(e) {
+                _this.changePage(e.target)
+            }
+
+            prevPageBtn.onclick = function(e) {
+                _this.changePage(e.target)
+            }
+
+
+            
         },
 
-        showMenuModal: function() {
-            menuModal.classList.add('open')
-            $('body').style.overflow = 'hidden' //stop scroll when open
-        },        
-
-        hideMenuModal: function() {
-            menuModal.classList.remove('open')
-            $('body').style.overflow = 'auto'  //continue scroll when close
+        //Xác định chính xác hiddenElement mà ta click vào
+        defineElement: function(selector) {
+            let element
+            if(selector){
+                if(selector.classList.contains('menu-title')) {
+                    element = menuModal
+                }
+                if(selector.classList.contains('contact-title')) {
+                    element = contactModal
+                }
+                if(selector.classList.contains('food-items')) {
+                    element = foodInformation
+                }   
+            }
+            return element
         },
 
-        changePage: function() {
-            naviBtn.forEach((item, i) => 
-            item.classList.remove('chosen-btn'))
-            foodPage.forEach((page) =>
-            page.classList.remove('open'))
-            this.classList.add('chosen-btn')
-            foodPage[Number(this.innerText) - 1].classList.add('open') //thêm class open để mở từng trang tương ứng với btn
+        //Unhide element
+        unhideElement: function(selector) {
+            if(selector) {
+                let element = this.defineElement(selector)           //lấy thằng cha, cụ thể hơn là xác định xem nó là thằng nào
+                
+                if(element == foodInformation) {
+                    this.renderFoodInfo(Number(selector.dataset.number))
+                    element.classList.add('open')                        // thêm class cho nó
+                }
+                else{
+                    element.classList.add('open')                        // thêm class cho nó
+                }
+            }
+        },
+        
+        //Hide element
+        hideElement: function(selector) {
+            if(selector) {
+                let element = selector.closest('.js-hidden-element')  //lấy thằng cha
+
+                if(element == foodInformation) {
+                    foodInformation.innerHTML = ''
+                    element.classList.remove('open')                      // xóa class của thằng cha
+                }
+                else{
+                    element.classList.remove('open')                      // xóa class của thằng cha
+                }
+            }            
         },
 
-        openContactModal: function() {
-            contactModal.classList.add('open')
+        checkMenuStatus: function(selector) {
+            if(selector.classList.contains('menu-title') || selector.classList.contains('js-menu-modal') || selector.closest('.js-menu-modal')){ //ktra 3 case mà click vào sẽ liên quan đến menuModal
+                if(this.isOpen){
+                    $('body').style.overflow = 'hidden' //stop scroll when open
+                } 
+                else{
+                    $('body').style.overflow = 'auto'  //continue scroll when close
+                } 
+            }
+        },
+        
+        changePage: function(element) {               //độc nhất
+            let foodPage = $$('.js-food-page') 
+
+                 //Ktra xem cái trang của btn mà click vào có tồn tại hay ko
+                if(foodPage[Number(element.innerText) - 1] || element.classList.contains('js-prev-next-btn')) {
+                    if(element.classList.contains('js-navi-btn')) this.currentPage = Number(element.innerText);
+                    if(element.classList.contains('next-food-btn')) ++this.currentPage 
+                    if(element.classList.contains('prev-food-btn')) --this.currentPage 
+
+                    //Loại bỏ class open/chosen ra khỏi btn với page
+                    naviBtn.forEach((item, i) => 
+                        item.classList.remove('chosen-btn'))
+                    foodPage.forEach((page) =>
+                        page.classList.remove('open'))
+
+                    //add class chosen cho nút và open cho page
+                    naviBtn[this.currentPage - 1].classList.add('chosen-btn')
+                    foodPage[this.currentPage - 1].classList.add('open') //thêm class open để mở từng trang tương ứng với btn
+                }
+                else{
+                    alert('Đang cập nhật thêm menu, mong thực khách thông cảm ạ!')
+                }
+
+           
+        }, 
+
+        addStyleForWebsite: function(selector) {
+            let foodItems = $$('.food-items')
+
+            if(selector){
+                let element = selector.closest('.js-hidden-element')
+                if(element === menuModal){
+                    menuModalContainer.style.animation = 'FadeOutX 2s ease';
+                }   
+            }
+           
+                for (const foodItem of foodItems) {
+                    foodItem.style.animationDuration = foodItem.dataset.timing + 'ms' //Thêm animation CSS vào food-items
+                }
+
         },
 
-        hideContactModal: function() {
-            contactModal.classList.remove('open')
-        },
+        
 
         // randomNum: function() {
         //     let randNumber = Math.floor(Math.random() * foodData.length)
@@ -245,50 +372,95 @@
         // render ra menu
         render: function() {
 
-            let htmls = []
-            let html1 = [];
-            let html2 = [];
+            let foodContainer = {}
+            let listMenuHTML = []
+            let foodMenuHTML = {}
+            let pageCount = 1
+            let foodCount = 1;
 
             //Lặp qua fake Api và trả về từng HTML của food
-            foodData.map((food, index) => {
-                htmls.push(`<li class="menu-items p20"><a class="clear-a menu-food js-close" href="">${food.name}</a></li>`)
-                if(index > 7) {
-                    html2.push(` 
-                        <div class="col col-four food-items food-number-${index + 1}" id="" > 
-                            <img src="${food.img}" alt="" class="food-image">
-                            <h2 class="food-title text-title_fs title larger">${food.name}</h2>
-                                <p class="food-description text_fs_M description">${food.description}</p>
+            for(let i = 0; i < foodData.length; ++i) {
+                //list item of foodMenu
+                listMenuHTML.push(`<li class="menu-items p20"><a class="clear-a menu-food js-close" href="">${foodData[i].name}</a></li>`)
+
+                // Ktra xem mảng đã là arr ch rồi thì bỏ qua
+                Array.isArray(foodMenuHTML[pageCount]) ? 0 : foodMenuHTML[pageCount] = []
+
+                //Đẩy food vào trong 1 key của obj
+                foodMenuHTML[pageCount].push(` 
+                    <div class="col col-four food-items food-number-${i + 1} js-open" data-timing=${foodCount * 500} data-number=${i}> 
+                        <img src="${foodData[i].img}" alt="" class="food-image">
+                        <div class="row">
+                            <h2 class="food-title text-title_fs title larger">${foodData[i].name}</h2>
+                            <p class="food-description text_fs_M description">${foodData[i].description}</p>
                         </div>
-                        `)
-                }
-                else{
-                    html1.push(` 
-                        <div class="col col-four food-items food-number-${index + 1}" id="" > 
-                            <img src="${food.img}" alt="" class="food-image">
-                            <h2 class="food-title text-title_fs title larger">${food.name}</h2>
-                            <p class="food-description text_fs_M description">${food.description}</p>
-                        </div>         
-                        `) 
-                }
-            })
+                        <div class="more-info-line">Đọc tiếp</div>
+                    </div>
+                `)
 
-            //Thêm food vào menu các page (Cần tìm cách tối ưu hơn)
-            $('.page-1').innerHTML = html1.join('')
-            $('.page-2').innerHTML = html2.join('')
+                //Xử lí khi 1 key của obj chứa đủ 8 foods
+                if(foodCount === 8) {
 
-            menuModalItemList.innerHTML = htmls.join('')
+                    //Tạo element, thêm class và gắn nó vào thằng container
+                    foodContainer[pageCount] = document.createElement('div')
+                    foodContainer[pageCount].classList.add('row', `page-${pageCount}`, 'js-food-page', 'text-center', `${pageCount === 1 ? 'open' : 'none' }`)
+                    foodMenuContainer.appendChild(foodContainer[pageCount])
+
+                    //Hiển thị HTML ra màn hình
+                    $(`.page-${pageCount}`).innerHTML = foodMenuHTML[pageCount].join('')
+
+                    //tắng PC
+                    ++pageCount
+
+                    //reset FC
+                    foodCount = 0
+                }
+
+                ++foodCount
+            }
+
+            // hiển thị itemModalList ra màn hình
+            menuModalItemList.innerHTML = listMenuHTML.join('')
 
             //set class loading cho những món chưa có hình
             for(let i = 0; i < $$('.food-items img').length; i++) {
-                $$('.food-items img')[i].outerHTML.includes('<img src="./assets/img/—Pngtree—loading icon vector sign_8367373.png" alt="" class="food-image">') ? $$('.food-items img')[i].classList.add('loading') : 0
+                $$('.food-items img')[i].outerHTML.includes('<img src="./assets/media/—Pngtree—loading icon vector sign_8367373.png" alt="" class="food-image">') ? $$('.food-items img')[i].classList.add('loading') : 0
             }
             
         },
 
+        renderFoodInfo: function(dataNumber) {
+
+            let info = []
+
+            info.push(
+                `
+                <div class="food-information-container js-container">
+                    <img src="${foodData[dataNumber].img}" alt="" class="food-information-image">
+                    <div class="info">
+                        <h2 class="food-informaqtion-title text-title_fs title">${foodData[dataNumber].name}</h2>
+                        <p class="food-information-description text_fs_M description">${foodData[dataNumber].description}</p>    
+                    </div>   
+                    <div class="food-information-slider"></div>                           
+                </div>                   
+                `
+            )
+
+            foodInformation.innerHTML = info.join('')
+
+        },
+
+
+
+
+
         start: function() {
-            this.handleEvents()
 
             this.render()
+            
+            this.handleEvents()
+
+            this.addStyleForWebsite()
 
         }
 
