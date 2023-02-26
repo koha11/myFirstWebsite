@@ -21,14 +21,15 @@
 
         <div id="header">
             <ul class="header-container text-center text-white header-title_fs">
-                <li class="center-title ">
-                    <span class="center-title-letter" data-delay= "200" >M</span>
-                    <span class="center-title-letter" data-delay= "400" >Y</span>
-                    <span class="center-title-letter" data-delay= "600" > F</span>
-                    <span class="center-title-letter" data-delay= "800" >O</span>
-                    <span class="center-title-letter" data-delay= "1000" >O</span>
-                    <span class="center-title-letter" data-delay= "1200" >D</span>
-
+                <li class="center-title">
+                    <div class="center-title-container">
+                        <span class="center-title-letter" data-delay= "200" >M</span>
+                        <span class="center-title-letter" data-delay= "400" >Y</span>
+                        <span class="center-title-letter" data-delay= "600" > F</span>
+                        <span class="center-title-letter" data-delay= "800" >O</span>
+                        <span class="center-title-letter" data-delay= "1000" >O</span>
+                        <span class="center-title-letter" data-delay= "1200" >D</span>
+                    </div>                   
                 </li>
                 <li class="menu-title js-open "><i class="ti-menu"></i></li>
                 <li class="contact-title js-open">Contact</li>
@@ -84,8 +85,8 @@
             </div>
 
             <!-- ABOUT -->
-            <hr class="about-break">
-            <div class="about-container text-center">
+            <!-- <hr class="about-break">
+            <div class="about-container text-center"> -->
                 <!-- <h2 class="about-title title">About Me, The Food Man</h2>
                 <br>
                 <img src="./assets/img/chef.jpg" alt="" class="about-image">
@@ -101,56 +102,35 @@
                 </div>
                 <div class="random-btn"></div>
                 <div class="demo"></div> -->
-            </div>
+            <!-- </div> -->
                 
             <hr class="about-break">
         </div>
 
         <!-- FOOTER  -->
-        <!-- <div id="footer" class="row">
-            <div class="col col-third footer-container">
-                <h3 class="footer-title title">footer</h3>
-                <div class="footer-description description">Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, 
-                ultricies congue gravida diam non fringilla.</div>
-                <div class="footer">Powered by <a href="https://www.w3schools.com/w3css/default.asp">w3.css</a></div>
-            </div>
-            <div class="col col-third footer-container">
-                <h3 class="footer-title title blog">BLOG POSTS</h3>
-                <ul>
-                    <li class="blog-items p16" style="border-bottom: 1px solid #ddd">
-                        <img src="./assets/img/workshop.jpg" alt="">
-                        <span class="large">Lorem</span>
-                        <br>
-                        <span>Sed mattis nunc</span>
-                    </li>
-                    <li class="blog-items p16">
-                        <img src="" alt="">    
-                        <span class="large">Ipsum</span> 
-                        <br>
-                        <span>Praes tinci sed</span>
-                    </li>
-                </ul>
-            </div>
-            <div class="col col-third footer-container">
-                <h3 class="footer-title title">POPULAR TAGS</h3>
-                <div class="tag-container">
-                    <span class="tag-name first">Travel</span>
-                    <span class="tag-name">New York</span>
-                    <span class="tag-name">Dinner</span>
-                    <span class="tag-name">Salmon</span>
-                    <span class="tag-name">France</span>
-                    <span class="tag-name">Drinks</span>
-                    <span class="tag-name">Ideas</span>
-                    <span class="tag-name">Flavors</span>
-                    <span class="tag-name">Cuisine</span>
-                    <span class="tag-name">Chicken</span>
-                    <span class="tag-name">Dressing</span>
-                    <span class="tag-name">Fried</span>
-                    <span class="tag-name">Fish</span>
-                    <span class="tag-name">Duck</span>
+        <div id="footer" class="row">
+            <div class="footer-item-container">
+                <div class="footer-item about-this-website">
+                    <h3>Một chút về Chiếc web này</h3>
+                    <p>fasd fsad afsd f sdf asd f sdf asd fasd f asdf asd fasd fsd f
+                        fasfsadfsdfsdfsdf
+                        fsdafsdfasdf
+                    </p>
+                </div>
+                <div class="footer-item another-projects">
+                    <h3>Những project khác</h3>
+                    <ul> 
+                        <li><a href="">None</a></li>
+                        <li><a href="">None</a></li>
+                        <li><a href="">None</a></li>
+                    </ul>
+                  
                 </div>
             </div>
-        </div> -->
+
+            <div class="footer-credit">Create by <a href="">Koha</a></div>
+           
+        </div> 
     </div>  
 </body>
 
@@ -210,6 +190,8 @@
 
             const nextPageBtn = $('.next-food-button')
             const prevPageBtn = $('.prev-food-button')
+
+            let moreInfo = $$('.more-info-line')
             
             //Hành vi đóng mở các modal trong website
                 Array.from(openBoxList).forEach((openElement) => {
@@ -256,8 +238,14 @@
                 _this.changePage(e.target)
             }
 
-
-            
+            moreInfo.forEach((item) => { 
+                item.onmouseover =  function(e){
+                    _this.addStyleForWebsite(e.target, 'mouseover')
+                }
+                item.onmouseout = function(e){
+                    _this.addStyleForWebsite(e.target, 'mouseout')
+                }
+            })            
         },
 
         //Xác định chính xác hiddenElement mà ta click vào
@@ -270,7 +258,7 @@
                 if(selector.classList.contains('contact-title')) {
                     element = contactModal
                 }
-                if(selector.classList.contains('food-items')) {
+                if(selector.classList.contains('more-info-line')) {
                     element = foodInformation
                 }   
             }
@@ -283,6 +271,7 @@
                 let element = this.defineElement(selector)           //lấy thằng cha, cụ thể hơn là xác định xem nó là thằng nào
                 
                 if(element == foodInformation) {
+                    selector = selector.closest('.food-items')
                     this.renderFoodInfo(Number(selector.dataset.number))
                     element.classList.add('open')                        // thêm class cho nó
                 }
@@ -344,18 +333,32 @@
            
         }, 
 
-        addStyleForWebsite: function(selector) {
+        addStyleForWebsite: function(selector, event) {
             let foodItems = $$('.food-items')
+            let centerTitleLetters = $$('.center-title-letter')
 
             if(selector){
-                let element = selector.closest('.js-hidden-element')
-                if(element === menuModal){
-                    menuModalContainer.style.animation = 'FadeOutX 2s ease';
-                }   
+                if(event === 'mouseover'){
+                    let element = selector.closest('.food-items')
+                    element.style.transform = 'scale(1.2)'
+                }
+                else if(event === 'mouseout'){
+                    let element = selector.closest('.food-items')
+                    element.style.transform = 'unset'
+                }
+                else{
+                    let element = selector.closest('.js-hidden-element')
+                    if(element === menuModal){
+                        menuModalContainer.style.animation = 'FadeOutX 2s ease';
+                    }
+                }
             }
-           
                 for (const foodItem of foodItems) {
                     foodItem.style.animationDuration = foodItem.dataset.timing + 'ms' //Thêm animation CSS vào food-items
+                }
+
+                for (const letter of centerTitleLetters) {
+                    letter.style.transitionDelay = letter.dataset.delay + 'ms' //Thêm animation CSS vào food-items
                 }
 
         },
@@ -388,13 +391,13 @@
 
                 //Đẩy food vào trong 1 key của obj
                 foodMenuHTML[pageCount].push(` 
-                    <div class="col col-four food-items food-number-${i + 1} js-open" data-timing=${foodCount * 500} data-number=${i}> 
+                    <div class="col col-four food-items food-number-${i + 1}" data-timing=${foodCount * 500} data-number=${i}> 
                         <img src="${foodData[i].img}" alt="" class="food-image">
                         <div class="row">
                             <h2 class="food-title text-title_fs title larger">${foodData[i].name}</h2>
                             <p class="food-description text_fs_M description">${foodData[i].description}</p>
                         </div>
-                        <div class="more-info-line">Đọc tiếp</div>
+                        <div class="more-info-line js-open">Đọc tiếp</div>
                     </div>
                 `)
 
