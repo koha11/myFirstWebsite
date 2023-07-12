@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/icon/themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <title>Food Web 4U</title>
@@ -14,9 +15,7 @@
 <body>
     <div id="main">  
         <div id="bg-header">
-            <video autoplay loop muted preload="metadata">
-                <source src="./assets/media/Seoul - 21985.mp4" type="video/mp4">
-            </video>
+            
         </div>
 
         <div id="header">
@@ -69,6 +68,28 @@
 
         <div class="to-top-btn"></div>
 
+        <!-- <div class="float-player">
+            <div class="player">
+                <div class="album"><img src="./assets/media/chef.jpg" alt=""></div>
+                <div class="progress">
+                    <input type="range" name="" id="">
+                </div>
+                <div class="player-btn">
+                    <div class="player-prev-btn"><i class="fa-sharp fa-solid fa-backward"></i></div>
+                    <div class="player-play-btn"><i class="fa-solid fa-play"></i></div>
+                    <div class="player-next-btn"><i class="fa-solid fa-forward"></i></div>
+                    <div class="player-random-btn"><i class="fa-solid fa-shuffle"></i></div>
+                    <div class="player-repeat-btn"><i class="fa-solid fa-repeat"></i></div>
+                </div>
+               
+            </div>
+            <div class="playlist">
+                <div class="playlist-btn"></div>
+                <div class="playlist-container"></div>
+            </div>
+            <div class="player-close-btn"></div>            
+        </div> -->
+
         <div id="content">
             <div class="food row">
                 <div class="food-menu-container">
@@ -83,27 +104,7 @@
                     <a class="food-button next-food-button clear-a js-prev-next-btn" href="#">>></a>            
                 </div>
             </div>
-
-            <!-- ABOUT -->
-            <!-- <hr class="about-break">
-            <div class="about-container text-center"> -->
-                <!-- <h2 class="about-title title">About Me, The Food Man</h2>
-                <br>
-                <img src="./assets/img/chef.jpg" alt="" class="about-image">
-                <div class="about-content-container">
-                    <h3 class="about-par-title title">I am Who I Am!</h3>
-                    <a href=""></a> <i class="about-par-description title">With Passion For Real, Good Food</i>
-                    <p class="about-par-content description">Just me, myself and I, exploring the universe of unknownment.
-                    I have a heart of love and an interest of lorem ipsum and mauris neque quam blog. 
-                    I want to share my world with you. Praesent tincidunt sed tellus ut rutrum. 
-                    Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla. 
-                    Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.
-                    </p>
-                </div>
-                <div class="random-btn"></div>
-                <div class="demo"></div> -->
-            <!-- </div> -->
-                
+           
             <hr class="about-break">
         </div>
 
@@ -199,6 +200,7 @@
                         _this.isOpen = true                        
                         _this.unhideElement(openElement)
                         _this.checkMenuStatus(openElement)  
+                        // _this.addStyleForWebsite(openElement)
                     } 
                 })             
                 
@@ -211,9 +213,12 @@
                 Array.from(closeBoxList).forEach((closeElement) => {
                     closeElement.onclick = function(e) {
                         _this.isOpen = false        
-                        _this.addStyleForWebsite(closeElement)          
-                        _this.hideElement(closeElement)  
-                        _this.checkMenuStatus(closeElement)        
+                        _this.addStyleForWebsite(closeElement)  
+                        setTimeout(() => {
+                            _this.hideElement(closeElement)  
+                            _this.checkMenuStatus(closeElement) 
+                        }, 1000)        
+       
                     } 
                 })
 
@@ -312,9 +317,15 @@
 
                  //Ktra xem cái trang của btn mà click vào có tồn tại hay ko
                 if(foodPage[Number(element.innerText) - 1] || element.classList.contains('js-prev-next-btn')) {
-                    if(element.classList.contains('js-navi-btn')) this.currentPage = Number(element.innerText);
-                    if(element.classList.contains('next-food-btn')) ++this.currentPage 
-                    if(element.classList.contains('prev-food-btn')) --this.currentPage 
+                    if(element.classList.contains('js-navi-btn')) this.currentPage = Number(element.innerText)
+                    if(element.classList.contains('next-food-button')) ++this.currentPage
+                    if(element.classList.contains('prev-food-button')) {
+                        if(this.currentPage > 1)  --this.currentPage 
+                        else{
+                            //idea: khi o trang1 thi se vo hieu hoa prev btn
+                        }
+                    } 
+                    
 
                     //Loại bỏ class open/chosen ra khỏi btn với page
                     naviBtn.forEach((item, i) => 
@@ -342,15 +353,15 @@
                     let element = selector.closest('.food-items')
                     element.style.transform = 'scale(1.2)'
                 }
-                else if(event === 'mouseout'){
+                if(event === 'mouseout'){
                     let element = selector.closest('.food-items')
                     element.style.transform = 'unset'
                 }
-                else{
-                    let element = selector.closest('.js-hidden-element')
-                    if(element === menuModal){
-                        menuModalContainer.style.animation = 'FadeOutX 2s ease';
-                    }
+                if(selector.classList.contains('js-close') && (selector.closest('.menu-modal-container') == menuModalContainer || selector.querySelector('.menu-modal-container') == menuModalContainer)){
+                    menuModalContainer.style.animationName = 'FadeOutX'
+                    setTimeout(()=>{
+                        menuModalContainer.style.animationName = 'FadeInX'
+                    }, 1000)
                 }
             }
                 for (const foodItem of foodItems) {
